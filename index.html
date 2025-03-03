@@ -3,74 +3,434 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shanganani Tshekiso - Data Analytics & Business Consultant</title>
+    <link rel="icon" type="image/png" href="C:\Users\malga\Desktop\Tshekiso Projects\logo.png">
+    <title>Consult Tshekiso - Business Intelligence Solutions</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
         }
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            background: white;
-            padding: 20px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-        .profile-pic {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 3px solid #007BFF;
-            object-fit: cover;
-            margin-bottom: 20px;
-        }
-        h1 {
-            color: #333;
-        }
-        p {
-            color: #666;
+
+        body {
             line-height: 1.6;
         }
-        .contact {
-            margin-top: 20px;
+
+        .header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('analytics-bg.jpg');
+            background-size: cover;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
         }
-        .contact a {
-            color: #007BFF;
+
+
+        .nav {
+            background: #333;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav a {
+            color: white;
             text-decoration: none;
-            font-weight: bold;
+            margin: 0 15px;
+        }
+
+        .services {
+            padding: 50px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .cta-button {
+            background: #007bff;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+        .footer {
+            background: #333;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 15px;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #555;
+        }
+        .success-stories {
+            padding: 70px 20px;
+            background: #f8f9fa;
+            margin-top: 30px;
+        }
+
+        .success-stories h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .success-case {
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.05);
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .success-case h3 {
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+
+        .success-case p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .team-section {
+            padding: 70px 20px;
+            background: white;
+        }
+
+        .team-section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .team-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            padding: 0 20px;
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .team-member img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .team-member .bio {
+            color: #444;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.8;
+	    text-align: justify;
+        }
+	.team-member h3, .team-member .position {
+            text-align: center;
+        }
+.contact-section {
+            padding: 70px 20px;
+            background: #f8f9fa;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-form {
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: #007bff;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #0056b3;
+        }
+	.pricing-plans {
+            padding: 50px 20px;
+            background: #f8f9fa;
+        }
+
+        .pricing-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .plan-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .plan-name {
+            color: #007bff;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .plan-price {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .plan-features li {
+            margin-bottom: 10px;
+            color: #666;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <img src="1701676500890.jfif" alt="Profile Picture" class="profile-pic">
-        <h1>Shanganani 'Shakes' Tshekiso</h1>
-        <h3>Data Analytics | Process Analysis | Strategy & Business Consulting</h3>
-        <p>
-            I am a highly skilled professional specializing in data analytics, business process management, and strategy consulting.
-            My expertise includes leveraging data to drive strategic decisions, optimizing business processes, and implementing
-            technology-driven solutions to improve operational efficiency.
-        </p>
-        <h2>Expertise</h2>
-        <ul>
-            <li>Data Analytics & Business Intelligence</li>
-            <li>Process Optimization & Automation</li>
-            <li>IT & Digital Transformation</li>
-            <li>Business Strategy & Decision Support</li>
-        </ul>
-        <h2>Background</h2>
-        <p>
-            With experience in IT support for the Administration of Justice in Botswana and involvement in projects aimed at
-            improving business processes, I bring a unique combination of technical and business acumen to deliver results.
-        </p>
-        <div class="contact">
-            <h2>Contact Me</h2>
-            <p>Email: <a href="mailto">tshekisoshanganani@gmail.com</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/shanganani-tshekiso-53588b1a4/"> Shanganani</a></p>
+    <nav class="nav">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <header class="header" id="home">
+        <h1>Consult Tshekiso</h1>
+        <p>Transform Your Business with Data-Driven Insights</p>
+        <button class="cta-button">Get Started</button>
+    </header>
+
+    <section class="services" id="services">
+        <div class="service-card">
+            <h2>AI-Powered Dashboard</h2>
+            <p>Real-time insights with advanced AI analytics for informed decision-making.</p>
         </div>
-    </div>
+        <div class="service-card">
+            <h2>Custom Analytics</h2>
+            <p>Tailored analytical solutions designed for your specific business needs.</p>
+        </div>
+        <div class="service-card">
+            <h2>Consulting & Training</h2>
+            <p>Expert guidance and comprehensive training for your team.</p>
+        </div>
+    </section>
+
+    <section class="success-stories">
+        <h2>Success Stories in Botswana</h2>
+        <div class="success-case">
+            <div>
+                <h3>Builders Hub</h3>
+                <p>Implemented comprehensive data analytics solutions that helped Builders Hub optimize their inventory management and improve customer satisfaction by 45%. Our AI-powered insights led to a 30% increase in operational efficiency.</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="team-section">
+        <h2>About Tshekiso</h2>
+        <div class="team-container">
+            <div class="team-member">
+                <img src="C:\Users\malga\Desktop\Tshekiso Projects\Shanganani Tshekiso.jpg" alt="Shanganani Tshekiso">
+                <h3>Shanganani Tshekiso</h3>
+                <div class="position"> Independent Consultant</div>
+                <p class="bio">
+                    Shanganani Tshekiso, a distinguished professional in business intelligence and data analytics. 
+                    An Independent Consultant bringing extensive expertise in helping organizations 
+                    leverage data-driven insights for strategic decision-making. Tshekiso's innovative approach to business analytics 
+                    has transformed numerous organizations across Botswana, particularly in the retail sectors. 
+                    With a strong background in AI and business intelligence, delivers
+                    cutting-edge analytics solutions that drive measurable business outcomes.
+                </p>
+            </div>
+        </div>
+    </section>
+<section class="contact-section" id="contact">
+        <h2 style="text-align: center; margin-bottom: 40px; color: #333;">Contact Us</h2>
+        <div class="contact-container">
+            <div class="contact-form">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+            <div class="contact-info" style="padding: 30px;">
+                <h3 style="color: #333; margin-bottom: 20px;">Get in Touch</h3>
+                <p style="margin-bottom: 15px; color: #666;">
+                    Have questions about my services? Reach out to me and i'll be happy to help.
+                </p>
+                <div style="margin-top: 30px;">
+                    <p style="margin-bottom: 10px; color: #666;">
+                        <strong>Email:</strong> tshekisoshanganani@gmail.com
+                    </p>
+                    <p style="margin-bottom: 10px; color: #666;">
+                        <strong>Phone:</strong> (267) 75516003
+                    </p>
+                    <p style="color: #666;">
+                        <strong>Address:</strong><br>
+                        CBD<br>
+                        Gaborone, Botswana
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>Tshekiso provides cutting-edge business intelligence solutions to help companies make data-driven decisions.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: tshekisoshanganani@gmail.com</p>
+                <p>Phone: (267) 75516003</p>
+                <p>Address: CBD, Gaborone, Botswana</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p><a href="#home">Home</a></p>
+                <p><a href="#services">Services</a></p>
+                <p><a href="#contact">Contact</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Consult Tshekiso. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Animation for service cards on scroll
+        window.addEventListener('scroll', () => {
+            const cards = document.querySelectorAll('.service-card');
+            cards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+                if (cardTop < window.innerHeight - 100) {
+                    card.style.opacity = '1';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
